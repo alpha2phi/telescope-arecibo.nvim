@@ -155,7 +155,8 @@ local function on_search_result(response)
 end
 
 local function do_search()
-  local query_text = vim.fn.trim(vim.fn.getline('.'):gsub('%[Search%]'..state.original_prompt_prefix, ''))
+  local search_str = vim.fn.getline('.'):gsub('%[Search%]'..state.original_prompt_prefix, '')
+  local query_text = vim.fn.trim(search_str)
   if query_text == '' then return end
 
   set_finder(mode.query)
