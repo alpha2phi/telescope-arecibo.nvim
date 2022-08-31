@@ -174,7 +174,7 @@ local function search_or_select(_)
   if state.mode == mode.query then
     do_search()
   else
-    local selection = actions.get_selected_entry()
+    local selection = require("telescope.actions.state").get_selected_entry()
     if selection then
       os.execute(state.open_command .. ' "' .. selection.value..'"' .. '&> /dev/null')
     end
